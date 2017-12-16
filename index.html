@@ -20,27 +20,32 @@
 				</div>
 				<div class="column-info open" ng-class="{open: vm.columnInfoOpen}">
 					<div class="column-graph">
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
-						graph<br />
+						<div class="column-graph-header">
+							column graph header
+						</div>
+						<div class="column-graph-content">
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+							graph<br />
+						</div>
 					</div>
 
 					<div class="column-log" ng-class="{open: vm.columnLogContentOpen}">
@@ -49,7 +54,7 @@
 						</div>
 						<div class="column-log-content">
 							log<br />
-							log<br />
+							log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log log <br />
 							log<br />
 							log<br />
 							log<br />
@@ -191,7 +196,25 @@
 
 			.column-graph {
 				background: violet;
+			/*	height: 100%;
+				flex: 3;
+				display: flex;
+				flex-direction: column;*/
+
+				/*background: pink;*/
 				height: 100%;
+				transition: height .3s;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				flex: 3;
+			}
+
+			.column-graph-header {
+				background: purple;
+			}
+
+			.column-graph-content {
 				flex: 3;
 			}
 
