@@ -1,0 +1,258 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+	</head>
+
+	<body ng-app="myApp" ng-controller="controller as vm">
+		<div class="header">
+			<div class="container">
+				{{vm.greeting}}<br />
+				{{vm.greeting}}<br />
+				{{vm.greeting}}<br />
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="flex">
+				<div class="column-editor">
+					column-editor<br />
+					<a ng-click="vm.toggleColumnInfoOpen()">toggle column info open</a>
+				</div>
+				<div class="column-info open" ng-class="{open: vm.columnInfoOpen}">
+					<div class="column-graph">
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+						graph<br />
+					</div>
+
+					<div class="column-log" ng-class="{open: vm.columnLogContentOpen}">
+						<div class="column-log-header">
+							<a ng-click="vm.toggleColumnLogContentOpen()">toggle column log <br />content open</a>
+						</div>
+						<div class="column-log-content">
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+							log<br />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 		<div class="container">
+			<table class="table">
+				<tr>
+					<th>bla</th>
+					<th>bla</th>
+					<th>bla</th>
+					<th>bla</th>
+				</tr>
+				<tr>
+					<td>bla</td>
+					<td>bla</td>
+					<td>bla</td>
+					<td>bla</td>
+				</tr>
+				<tr>
+					<td>bla</td>
+					<td>bla</td>
+					<td>bla</td>
+					<td>bla</td>
+				</tr>
+
+			</table>
+		</div> -->
+
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+		<script type="text/javascript">
+
+			var myApp = angular.module('myApp', []);
+
+			myApp.controller('controller', ['$scope', function($scope) {
+				vm = this;
+
+				vm.greeting = 'bla';
+				vm.columnInfoOpen = true;
+				vm.columnLogContentOpen = false;
+
+				vm.toggleColumnInfoOpen = function() {
+					vm.columnInfoOpen = !vm.columnInfoOpen;
+				}
+
+				vm.toggleColumnLogContentOpen = function() {
+					vm.columnLogContentOpen = !vm.columnLogContentOpen;
+				}
+			}]);
+
+		</script>
+
+
+		<style type="text/css">
+
+			body {
+				height: 100%;
+				background: lightblue;
+				display: flex;
+				flex-direction: column;
+			}
+
+			html {
+				height: 100%;
+				background: blue;
+			}
+
+			div {
+				overflow: auto;
+			}
+
+			.header {
+				background: yellow;
+				height: 150px;
+				width: 100%;
+			}
+
+			.container {
+				background: lime;
+				display: flex;
+				flex: 3;
+			}
+
+			.container-fluid {
+				display: flex;
+				background: lightgreen;
+				height: 100%;
+				width: 100%;
+				flex: 3;
+			}
+
+			.flex {
+				display: flex;
+				flex-direction: row;
+				position: relative;
+				align-items: stretch;
+				height: 100%;
+				background: blue;
+				width: 100%;
+			}
+
+			.column-editor, .column-info {
+				width: 100%;
+				transition: width .3s;
+			}
+
+			.column-editor {
+				background: gainsboro;
+			}
+
+			.column-info {
+				width: 0;
+				background: lightgrey;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.column-info.open {
+				width: 100%;
+			}
+
+			.column-graph {
+				background: violet;
+				height: 100%;
+				flex: 3;
+			}
+
+			.column-log {
+				background: pink;
+				height: 40px;
+				transition: height .3s;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.column-log .column-log-content {
+				height: 0;
+				overflow: auto;
+				flex: 3;
+			}
+
+			.column-log.open {
+				height: 50%;
+			}
+
+			.column-log.open .column-log-content {
+				height: auto;
+			}
+
+			.column-log-header {
+				background: magenta;
+			}
+
+/*			.c-2-1, .c-2-2 {
+				transition: height .3s;
+			}
+
+			.c-2-1 {
+
+				height: 100%;
+			}
+
+			.c-2-1.c-2-2-open {
+				height: 50%;
+			}
+
+			.c-2-2 {
+
+				height: 30px;
+			}
+
+			.c-2-2.open {
+				height: 50%;
+			}*/
+
+			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			    .column-editor, .column-info {
+			        flex: 0;
+			        min-width: 50%;
+			    }
+			}
+
+		</style>
+
+
+	</body>
+</html>
