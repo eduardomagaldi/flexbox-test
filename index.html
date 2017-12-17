@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/theme/monokai.min.css" />
 	</head>
 
 	<body ng-app="myApp" ng-controller="controller as vm">
@@ -19,9 +21,7 @@
 						column editor header
 						<a ng-click="vm.toggleColumnInfoOpen()" class="pull-right">toggle column info open</a>
 					</div>
-					<div class="column-editor-content">
-						column editor content
-					</div>
+					<textarea id="editor" class="column-editor-content">column editor content</textarea>
 				</div>
 				<div class="column-info open" ng-class="{open: vm.columnInfoOpen}">
 					<div class="column-graph">
@@ -107,7 +107,7 @@
 
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
 		<script type="text/javascript">
 
 			var myApp = angular.module('myApp', []);
@@ -127,6 +127,12 @@
 					vm.columnLogContentOpen = !vm.columnLogContentOpen;
 				}
 			}]);
+
+
+			var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+				lineNumbers: true,
+				theme: 'monokai'
+			});
 
 		</script>
 
@@ -193,7 +199,7 @@
 				background: lightpink;
 			}
 
-			.column-editor-content {
+			.column-editor-content, .CodeMirror {
 				background: lightsalmon;
 				flex: 3;
 			}
@@ -258,27 +264,7 @@
 				background: magenta;
 			}
 
-/*			.c-2-1, .c-2-2 {
-				transition: height .3s;
-			}
 
-			.c-2-1 {
-
-				height: 100%;
-			}
-
-			.c-2-1.c-2-2-open {
-				height: 50%;
-			}
-
-			.c-2-2 {
-
-				height: 30px;
-			}
-
-			.c-2-2.open {
-				height: 50%;
-			}*/
 
 			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 			    .column-editor, .column-info {
