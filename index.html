@@ -15,8 +15,13 @@
 		<div class="container-fluid">
 			<div class="flex">
 				<div class="column-editor">
-					column-editor<br />
-					<a ng-click="vm.toggleColumnInfoOpen()">toggle column info open</a>
+					<div class="column-editor-header">
+						column editor header
+						<a ng-click="vm.toggleColumnInfoOpen()" class="pull-right">toggle column info open</a>
+					</div>
+					<div class="column-editor-content">
+						column editor content
+					</div>
 				</div>
 				<div class="column-info open" ng-class="{open: vm.columnInfoOpen}">
 					<div class="column-graph">
@@ -146,7 +151,6 @@
 
 			.header {
 				background: yellow;
-				height: 150px;
 				width: 100%;
 			}
 
@@ -177,17 +181,26 @@
 			.column-editor, .column-info {
 				width: 100%;
 				transition: width .3s;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.column-editor {
 				background: gainsboro;
 			}
 
+			.column-editor-header {
+				background: lightpink;
+			}
+
+			.column-editor-content {
+				background: lightsalmon;
+				flex: 3;
+			}
+
 			.column-info {
 				width: 0;
 				background: lightgrey;
-				display: flex;
-				flex-direction: column;
 			}
 
 			.column-info.open {
@@ -211,7 +224,7 @@
 			}
 
 			.column-graph-header {
-				background: purple;
+				background: lavender;
 			}
 
 			.column-graph-content {
